@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Community Food Share</string>
+    <string name="app_tagline">Share More. Waste Less. Care Together.</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_browse">Find Food</string>
+    <string name="nav_donate">Donate</string>
+    <string name="nav_requests">Requests</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_admin">Admin Portal</string>
+    <string name="ai_disclaimer">AI screening identifies possible visible warning signs only. It cannot confirm that food is safe to eat or certify its quality. Always follow applicable food-safety guidance and verify preparation, storage, and handling conditions.</string>
+</resources>

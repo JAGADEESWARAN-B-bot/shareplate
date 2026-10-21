@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Plate circle -->
+    <path
+        android:fillColor="#218C65"
+        android:pathData="M54,20 C35.22,20 20,35.22 20,54 C20,72.78 35.22,88 54,88 C72.78,88 88,72.78 88,54 C88,35.22 72.78,20 54,20 Z" />
+    <!-- Plate inner rim -->
+    <path
+        android:fillColor="#FAF8F1"
+        android:pathData="M54,28 C39.64,28 28,39.64 28,54 C28,68.36 39.64,80 54,80 C68.36,80 80,68.36 80,54 C80,39.64 68.36,28 54,28 Z" />
+    <!-- Food cloche / sharing heart leaf symbol -->
+    <path
+        android:fillColor="#173F35"
+        android:pathData="M54,34 C44,34 36,41 35,50 L73,50 C72,41 64,34 54,34 Z" />
+    <!-- Heart & leaf in center -->
+    <path
+        android:fillColor="#218C65"
+        android:pathData="M54,53 C52,50 46,47 42,52 C38,57 41,63 54,72 C67,63 70,57 66,52 C62,47 56,50 54,53 Z" />
+    <path
+        android:fillColor="#FAF8F1"
+        android:pathData="M54,58 L54,66"
+        android:strokeColor="#FAF8F1"
+        android:strokeWidth="1.5" />
+</vector>

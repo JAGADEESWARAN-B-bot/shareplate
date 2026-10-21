@@ -1,0 +1,6 @@
+{
+  "name": "Community Food Share",
+  "description": "AI-powered Community Food Sharing Platform connecting surplus food with people in need, featuring intelligent food quality screening, safety checks, requests, and direct coordination.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
