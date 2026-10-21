@@ -1,6 +1,6 @@
 # COMMUNITY FOOD SHARING PLATFORM
 
-A modern, AI-powered platform connecting restaurants, bakeries, community organizations, and individuals to share surplus food safely, minimize food waste, and support local community hunger relief.
+A modern, full-stack, AI-powered platform connecting restaurants, bakeries, community organizations, and individuals to share surplus food safely, minimize food waste, and support local community hunger relief.
 
 ---
 
@@ -8,8 +8,8 @@ A modern, AI-powered platform connecting restaurants, bakeries, community organi
 
 1. **Brand Identity & Nature-Inspired Theme**
    - Palette: Deep Forest Green (`#173F35`), Emerald Green (`#218C65`), Soft Mint (`#E7F5EC`), Warm Ivory (`#FAF8F1`), Charcoal (`#202923`), and Muted Sage (`#A9BBA9`).
-   - Custom typography pairing: **Manrope** for display headlines, **Inter** for readable body text.
-   - Custom adaptive leaf and plate community brand icon.
+   - Custom typography: **Manrope** for display headlines, **Inter** for readable body text.
+   - Custom leaf and plate community brand icon.
 
 2. **Complete Food Donation Workflow**
    - Detailed specification submission: Food name, category, quantity, unit, estimated servings, preparation date/time, temperature control & storage method, packaging condition, hygiene notes, and disclosed allergens.
@@ -46,32 +46,41 @@ A modern, AI-powered platform connecting restaurants, bakeries, community organi
 
 ---
 
+## Vercel Deployment Guide
+
+### Why Vercel Showed 404
+When the repository was first pushed or deployed, it lacked a root `package.json`, `index.html`, and `vercel.json` SPA routing rewrites. Vercel had no web build output to serve at the root URL `/`.
+
+### How It Has Been Fixed
+1. Created `package.json` with standard Vite React build scripts (`build: "vite build"`).
+2. Created `index.html` at the repository root linking the Manrope and Inter typography and mounting `<div id="root"></div>`.
+3. Created `vite.config.js` targeting the `dist` directory.
+4. Created `vercel.json` with SPA catch-all rewrites (`"rewrites": [{"source": "/api/(.*)", "destination": "/api/$1"}, {"source": "/(.*)", "destination": "/index.html"}]`), ensuring all routes load without 404 errors on direct visit or page refresh.
+5. Implemented `/api/analyze-food.js` as a Vercel Serverless Function for secure server-side AI processing.
+
+### Deploying to Vercel (Step-by-Step)
+1. Push your updated code to your GitHub repository:
+   ```bash
+   git add .
+   git commit -m "Fix Vercel 404 by adding complete React frontend and Vercel routing"
+   git push origin main
+   ```
+2. In the Vercel Dashboard:
+   - Framework Preset: **Vite** (auto-detected)
+   - Root Directory: `./`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+3. Configure Environment Variables in Vercel Project Settings (optional for cloud backend & Gemini):
+   - `GEMINI_API_KEY`: Your Gemini API key for server-side AI screening
+   - `VITE_SUPABASE_URL`: Your Supabase Project URL
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase Anon Key
+4. Click **Deploy**. The root URL `/` will now load the live Community Food Sharing Platform immediately.
+
+---
+
 ## Technology Stack & Architecture
 
-- **Mobile Client:** Android Native (Kotlin, Jetpack Compose, Material Design 3, Coroutines, Flow).
-- **Local Persistence:** Room Database with initial realistic community data seed (restaurants, pantries, bakeries).
+- **Web Frontend:** React 18, Vite 5, Lucide Icons.
+- **Serverless API:** Vercel Functions (`api/analyze-food.js`) with Gemini Vision integration.
+- **Mobile Client:** Android Native (Kotlin, Jetpack Compose, Material Design 3, Room, Coroutines, Flow).
 - **Backend / Cloud Schema:** Supabase PostgreSQL with Row Level Security (RLS) policies (see `supabase_schema.sql`).
-- **AI Engine:** Google Gemini Vision capable models with structured JSON output and safety heuristic pipeline.
-
----
-
-## Environment Variables & Configuration
-
-Set the following in `.env` or in AI Studio Secrets:
-```env
-# Gemini API Key (configured securely in AI Studio Secrets panel)
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-
-# Optional: Supabase credentials for cloud synchronization
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=your-anon-key
-```
-
----
-
-## Database Setup (Supabase)
-
-If deploying the cloud backend:
-1. Open your Supabase project SQL Editor.
-2. Run the SQL script located in `supabase_schema.sql`.
-3. The script configures tables for `profiles`, `donations`, `food_requests`, `notifications`, `admin_audit_logs`, storage buckets for `food-images`, and Row Level Security policies.

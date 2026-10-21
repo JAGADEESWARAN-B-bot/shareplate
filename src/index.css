@@ -1,0 +1,162 @@
+:root {
+  --color-deep-forest: #173F35;
+  --color-emerald: #218C65;
+  --color-emerald-light: #2DB081;
+  --color-soft-mint: #E7F5EC;
+  --color-warm-ivory: #FAF8F1;
+  --color-charcoal: #202923;
+  --color-muted-sage: #A9BBA9;
+  --color-white: #FFFFFF;
+  --color-border: #E2EBE4;
+  --color-amber: #D97706;
+  --color-amber-bg: #FEF3C7;
+  --color-red: #DC2626;
+  --color-red-bg: #FEE2E2;
+
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-warm-ivory);
+  color: var(--color-charcoal);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-deep-forest);
+  line-height: 1.25;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+/* Common container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-available {
+  background-color: var(--color-soft-mint);
+  color: var(--color-emerald);
+  border: 1px solid rgba(33, 140, 101, 0.3);
+}
+
+.badge-pending {
+  background-color: var(--color-amber-bg);
+  color: var(--color-amber);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.badge-reserved {
+  background-color: #E0F2FE;
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.badge-completed {
+  background-color: #F1F5F9;
+  color: #475569;
+}
+
+.badge-rejected {
+  background-color: var(--color-red-bg);
+  color: var(--color-red);
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-emerald);
+  color: var(--color-white);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(33, 140, 101, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #1a7453;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-deep-forest);
+  color: var(--color-white);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: #0f2b24;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-deep-forest);
+  border: 1.5px solid var(--color-deep-forest);
+  padding: 0.65rem 1.3rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-soft-mint);
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 1rem;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(23, 63, 53, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(23, 63, 53, 0.09);
+}
